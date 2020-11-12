@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 from telethon.sessions.config import telebot_hash, telebot_id
 if not os.path.exists("session"):
     os.makedirs("session")
-    print (banner)
 
 author = "\n \n \033[1;32mAuthor: \033[1;31mBerthjone Redely Edward \n \033[1;32mContact: \033[0;93mhttps://codex-portfolio.netlify.app \n \033[1;32mInspiration: \033[1;31mJEJEKA TUTORIAL"
 banner = """\033[1;36m\n +++++++++ \t \t \t   +  \t + \n +  \t  +++++++  ++++++  ++++++   +   +\n + \t | \t | +  \t \ +__       + + \033[0;31m\n +   \t | \t | +  \t / +        +   +\n ++++++++ +++++++  ++++++  ++++++  + \t +""" + author
