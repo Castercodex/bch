@@ -21,6 +21,7 @@ phone_number = sys.argv[1]
 client = TelegramClient("session/"+phone_number, api_id, api_hash)
 client.connect()
 c = requests.Session()
+os.system("clear")
 print(banner)
 def wait(x):
     sys.stdout.write("\r")
