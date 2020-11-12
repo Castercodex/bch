@@ -27,7 +27,6 @@ phone_number = sys.argv[1]
 client = TelegramClient("session/" + phone_number, api_id, api_hash)
 client.connect()
 c = requests.Session()
-myself = client.get_me()
 os.system("clear")
 print(banner)
 
@@ -59,9 +58,10 @@ if not client.is_user_authorized():
     except SessionPasswordNeededError:
         password = input("Your 2fa Password : ")
         user = client.start(phone_number, password)
-os.system("clear")
-print(banner)
-print("\033[1;32mWelcome To BCH mining Bot",myself.first_name, " BCH Click Bot \n")
+        os.system("clear")
+        print(banner)
+myself = client.get_me()
+print("\033[1;32mWelcome To BCH mining Bot",myself.first_name, " BCH Click Bot \n")        
 print("\033[1;32mPlease Wait a moment LINKS LOADING")
 try:
     channel_entity = client.get_entity("@BCH_clickbot")
@@ -178,33 +178,8 @@ try:
                     "\r You earned " + js["reward"] + " BCH for visiting a site!"
                 )
         else:
-            sys.stdout.write("\r")
-            sys.stdout.write(
-                "                                                                "
-            )
-            sys.stdout.write("\r")
-            sys.stdout.write("\033[1;33mCaptcha Detected")
-            sys.stdout.flush()
-            sleep(2)
-            client(
-                GetBotCallbackAnswerRequest(
-                    channel_username,
-                    id,
-                    data=posts.messages[0].reply_markup.rows[1].buttons[1].data,
-                )
-            )
-            sys.stdout.write("\033[1;31mSkip Captcha...!       \\n")
-            sleep(2)
-        if posts.messages[0].message.find("You must stay") != -1 or posts.messages[0].message.find("Please stay on") != -1:
-            sec = re.findall( '([\\d.]*\\d+)', message)
-            wait(int(sec[0]))
-            sleep(1)
-            posts = client(GetHistoryRequest(peer=channel_entity,limit=2,offset_date=None,offset_id=0,max_id=0,min_id=0,add_offset=0,hash=0))
-            messageres = posts.messages[1].message
-            sleep(2)
-            sys.stdout.write("\\r\\033[1;30m# \\033[1;32m"+messageres+"\\n")
-        else:
-            pass    
+            pass
+           
 
 finally:
     client.disconnect()
