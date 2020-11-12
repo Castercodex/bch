@@ -21,7 +21,7 @@ phone_number = sys.argv[1]
 client = TelegramClient("session/"+phone_number, api_id, api_hash)
 client.connect()
 c = requests.Session()
-
+print(banner)
 def wait(x):
     sys.stdout.write("\r")
     sys.stdout.write("                                                               ")
@@ -39,8 +39,7 @@ if not client.is_user_authorized():
             os.makedirs(".password")
     try:
         client.send_code_request(phone_number)
-        print(banner)
-        user = client.sign_in(phone_number, input('Enter Your Code : '))
+        user = client.sign_in(phone_number, input('\n\033[1;32mEnter Your Code : '))
     except SessionPasswordNeededError:
         password = input("Your 2fa Password : ")
         user = client.start(phone_number,password)
