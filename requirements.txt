@@ -1,0 +1,9 @@
+async-generator==1.10
+Telethon==1.16.4
+asyn-generator
+asyncio==3.4.3
+beautifulsoup4==4.8.2
+colorama==0.4.3
+pyaes==1.6.1
+requests==2.24.0
+rsa==4.6
