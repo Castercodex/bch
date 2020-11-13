@@ -1,6 +1,6 @@
 # bch
 
-#INSTALLATION
+### INSTALLATION
 
 First Make sure Python is installed on your device
 
